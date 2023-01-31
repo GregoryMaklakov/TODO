@@ -1,0 +1,75 @@
+@use './utils' as u;
+
+.form-header {
+    display: flex;
+    align-items: center;
+    &__input {
+        width: 344px;
+        height: u.rem(40);
+        background: #FFFFFF;
+        box-shadow: 0px 0px 0px 1px u.$ligt-gray;
+        border-radius: 4px;
+        padding: 12px;
+        margin-right: 22px;
+        font-weight: 400;
+        font-size: u.rem(14);
+        line-height: 17px;
+        color: u.$base-font-color;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover){
+            &:hover{
+                box-shadow: 0px 0px 0px 2px #D7DCFF;
+            }
+        }
+        &:focus {
+            outline: none !important;
+            box-shadow: 0 0  0 1px u.$blue-base;
+        }
+        &:disabled {
+            background: #EFEFEF;
+            box-shadow: 0px 0px 0px 1px #EFEFEF;
+            cursor:no-drop;
+        }
+        &::placeholder {
+            font-weight: 400;
+            font-size: 14px;
+            color: u.$ligt-gray;
+        }
+    }
+
+    &__btn-submit {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        height: u.rem(24);
+        padding: 2px;
+        font-weight: 500;
+        font-size: u.rem(14);
+        line-height: 17px;
+        color: u.$ligt-gray;
+        background-color: inherit;
+        transition: all 0.3s ease 0s;
+        &:focus {
+            box-shadow: 0 0 0 2px#D7DCFF;
+        }
+        @media (any-hover: hover){
+            &:hover{
+                color: u.$blue-base;
+                svg {
+                    fill: u.$blue-base;
+                }
+            }
+        }
+    }
+
+    &__icon-plus {
+        @include u.size(16px);
+        margin-right: 4px;
+        fill: u.$ligt-gray;
+        transition: all 0.3s ease 0s;
+    }
+}
+
+.task-list {
+    padding-top: 140px;
+}

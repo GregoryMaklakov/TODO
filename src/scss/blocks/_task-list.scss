@@ -1,0 +1,25 @@
+@use '../components/utils' as u;
+
+.task-list {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+
+    &__title {
+        font-weight: 500;
+        font-size: u.rem(16);
+        line-height: 19px;
+        text-transform: uppercase;
+        color: #6A6E74;
+        margin-bottom: 15px;
+        margin-left: 24px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+

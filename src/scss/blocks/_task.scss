@@ -1,0 +1,30 @@
+@use '../components/utils' as u;
+
+.task {
+    background: #FFFFFF;
+    border-radius: 8px;
+    width: 100%;
+    height: u.rem(48);
+    display: flex;
+    align-items: center;
+    padding: 14px 34px 14px 24px;
+    margin-bottom: 2px;
+
+    &__content {
+        width: 100%;
+    }
+    &__content-text {
+        width: 90%;
+        font-weight: 500;
+        font-family: 'Rubik';
+        font-size: u.rem(16);
+        color: u.$base-font-color;
+        margin-bottom: 2px;
+        background-color: inherit;
+    }
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+}

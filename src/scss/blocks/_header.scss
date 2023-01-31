@@ -1,3 +1,28 @@
+@use '../components/utils' as u;
+
+.header {
+    height: u.rem(112);
+    //position: fixed;
+    width: 100%;
+    background-color: #FFFFFF;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &__container {
+        height: 100%;
+        @include u.flex(space-between, center)
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: u.rem(32);
+        color: u.$base-font-color;
+    }
+
+    &__form {}
+}
 
 
 

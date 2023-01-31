@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>TODO HW #36</title>
-    <link rel="stylesheet" href="./scss/style.scss"/>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>TODO HW #36</title>
+  <link rel="stylesheet" href="./scss/style.scss" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container container">
+      <h1 class="header__title">✏️ To do list</h1>
+      <form class="header__form form-header" id="new-task-form">
+        <input class="form-header__input" id="new-task-input" type="text" placeholder="Enter the task">
+        <button class="form-header__btn-submit" type="submit" id="new-task-submit">
+          <svg class="form-header__icon-plus">
+            <use xlink:href="#plus"> />
+          </svg> Add New Task
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="task-list">
+      <h2 id="title" class="task-list__title">Tasks</h2>
+      <ul id="tasks" class="task-list__list">
+
+         <!-- <li class="task">
+          <div class="content">
+            <input type="text" class="text" value="A new task" readonly>
+          </div>
+          <div class="actions">
+            <input type="checkbox" class="checkbox"></input>
+            <button class="delete">Delete</button>
+          </div>
+         </li>  -->
+
+      </ul>
+    </section>
+  </main>
 
 
-    <!-- SVG -->
-    <svg style="display: none;">
-    
-    </svg>
-    <!-- Script --> 
-    <script type="module" src="main.js"></script>
-  </body>
+
+  <!-- SVG -->
+  <svg style="display: none;">
+    <g id="plus" viewBox="0 0 16 17" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M8.66669 3.83335C8.66669 3.46516 8.36821 3.16669 8.00002 3.16669C7.63183 3.16669 7.33335 3.46516 7.33335 3.83335V7.83335H3.33335C2.96516 7.83335 2.66669 8.13183 2.66669 8.50002C2.66669 8.86821 2.96516 9.16669 3.33335 9.16669H7.33335V13.1667C7.33335 13.5349 7.63183 13.8334 8.00002 13.8334C8.36821 13.8334 8.66669 13.5349 8.66669 13.1667V9.16669H12.6667C13.0349 9.16669 13.3334 8.86821 13.3334 8.50002C13.3334 8.13183 13.0349 7.83335 12.6667 7.83335H8.66669V3.83335Z" />
+    </g>
+  </svg>
+  <!-- Script -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+
 </html>
