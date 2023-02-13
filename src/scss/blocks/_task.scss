@@ -1,5 +1,6 @@
 @use '../components/utils' as u;
 
+
 .task {
     background: #FFFFFF;
     border-radius: 8px;
@@ -9,18 +10,27 @@
     align-items: center;
     padding: 14px 34px 14px 24px;
     margin-bottom: 2px;
-
+    &__done {
+        background: #D7DCFF;
+    }
     &__content {
         width: 100%;
     }
     &__content-text {
-        width: 90%;
+        width: 80%;
         font-weight: 500;
         font-family: 'Rubik';
         font-size: u.rem(16);
         color: u.$base-font-color;
         margin-bottom: 2px;
         background-color: inherit;
+        &::placeholder {
+            font-weight: 500;
+            font-family: 'Rubik';
+            font-size: u.rem(16);
+            color: u.$base-font-color;
+            background-color: inherit;
+        }
     }
     &__actions {
         display: flex;
@@ -28,3 +38,4 @@
         gap: 18px;
     }
 }
+

@@ -1,17 +1,28 @@
 @use '../components/utils' as u;
 
 .header {
-    height: u.rem(112);
-    //position: fixed;
+    //height: u.rem(112);
+    position: fixed;
     width: 100%;
     background-color: #FFFFFF;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
+    padding-top: 40px;
+    padding-bottom: 34px;
+    @include u.media('tablet', max){
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
 
     &__container {
         height: 100%;
-        @include u.flex(space-between, center)
+        @include u.flex(space-between, center);
+        @include u.media('tablet', max){
+            flex-direction: column;
+            align-items:flex-start;
+        }
     }
 
     &__title {
@@ -19,9 +30,11 @@
         font-weight: 600;
         font-size: u.rem(32);
         color: u.$base-font-color;
+        @include u.media('tablet', max){
+            margin-bottom: 16px;
+            font-size: u.rem(24);
+        }
     }
-
-    &__form {}
 }
 
 

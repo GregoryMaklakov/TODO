@@ -1,12 +1,18 @@
 @use '../components/utils' as u;
-
+.main {
+    min-height: 100vh;
+    padding-top: 140px;
+    @include u.media('tablet', max){
+        padding-top: 188px;
+    }
+}
 .task-list {
-    width: 800px;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
-
+    
     &__title {
         font-weight: 500;
         font-size: u.rem(16);
@@ -19,7 +25,7 @@
 
     &__list {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 }
 
