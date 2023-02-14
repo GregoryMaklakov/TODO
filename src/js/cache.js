@@ -1,5 +1,5 @@
-import CACHE_KEY from './main';
-
+//import CACHE_KEY from './main';(ошибка при билде на нетлифайвш)
+const CACHE_KEY = 'todos';
 //Cache
 
 // зберегти дані в кеш (локалсторедж)
