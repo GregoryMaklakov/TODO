@@ -49,4 +49,4 @@ async function getOrFetchTodo() {
     return saveToCache(data);
 }
 
-export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById};
+//export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById};

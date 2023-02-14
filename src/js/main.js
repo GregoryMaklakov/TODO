@@ -1,4 +1,3 @@
-import {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById} from './cache';
 
 "use strict";
 
@@ -10,7 +9,7 @@ const $form = document.getElementById('new-task-form');
 const $btnAdd = document.getElementById('new-task-submit');
 
 // отримати список елементів по API
-async function getTodo() {
+export async function getTodo() {
     const result = await fetch('https://jsonplaceholder.typicode.com/todos');
     return result.json();
 }
@@ -236,3 +235,49 @@ function toggleChange($task, checked) {
 //     saveToCache(todos);
 // }
 //Cache and =================================================================================================================================================
+
+function saveToCache(todos) {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(todos));
+    return todos;
+}
+
+// отримати дані з кешу
+function getCacheData() {
+    const data = localStorage.getItem(CACHE_KEY);
+    return JSON.parse(data || "[]");
+}
+
+// отримати індекс елемента даних з кеша по id
+function getTodoIndxById(todos, id) {
+    return todos.findIndex((item) => item.id === id);
+}
+
+// змінити елемент даних кеша
+function editCacheTodo(id, newData) {
+    const todos = getCacheData();
+    const idx = getTodoIndxById(todos, id);
+    if (idx >= 0) {
+        todos[idx] = { ...todos[idx], ...newData };
+    }
+    saveToCache(todos);
+}
+
+// видалити елемент даних кеша
+function removeCacheTodo(id) {
+    const todos = getCacheData();
+    const idx = getTodoIndxById(todos, id);
+    if (idx >= 0) {
+        todos.splice(idx, 1);
+    }
+    saveToCache(todos);
+}
+
+// отримати дані з кеша чи завантажити по API
+async function getOrFetchTodo() {
+    const cache = getCacheData();
+    if (cache.length) {
+        return cache;
+    }
+    const data = await getTodo();
+    return saveToCache(data);
+}
