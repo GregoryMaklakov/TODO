@@ -3,6 +3,9 @@
 .form-header {
     display: flex;
     align-items: center;
+    @include u.media('phone', max){
+        width: 100%;
+    }
     @include u.media('tablet', max){
         flex-direction: column;
         justify-content: start;
@@ -22,6 +25,9 @@
         line-height: 17px;
         color: u.$base-font-color;
         transition: all 0.3s ease 0s;
+        @include u.media('phone', max){
+            width: 100%;
+        }
         @media (any-hover: hover){
             &:hover{
                 box-shadow: 0px 0px 0px 2px #D7DCFF;

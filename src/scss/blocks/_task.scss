@@ -5,14 +5,20 @@
     background: #FFFFFF;
     border-radius: 8px;
     width: 100%;
-    height: u.rem(48);
+    min-height: u.rem(48);
     display: flex;
     align-items: center;
     padding: 14px 34px 14px 24px;
     margin-bottom: 2px;
+    transition: all 0.3s ease 0s;
     &__done {
         background: #D7DCFF;
     }
+    &__delete {
+        transform: translateY(8rem) rotateZ(20deg);
+        opacity: 0;
+        transition: all 0.6s linear 0s;
+     }
     &__content {
         width: 100%;
     }

@@ -1,0 +1,113 @@
+@use '../components/utils' as u;
+
+.popup {
+    display: none;
+    &__wrapper {
+        position: fixed;
+        padding: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(29, 40, 70, 0.37);
+        height: 100vh;
+        width: 100vw;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__content {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        background-color: u.$color-white;
+        padding: 16px 16px 24px 16px;
+        border-radius: 4px;
+    }
+
+    &__close {
+        align-self: end;
+    }
+
+    &__icon {
+        @include u.size(16);
+        fill: u.$color-grey;
+        padding: 2px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: #dedbdb;
+                fill: #1638CC;
+            }
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: u.rem(12);
+        line-height: 14px;
+        text-align: center;
+        color: u.$base-font-color;
+        margin-bottom: 32px;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 16px;
+        width: 80px;
+        height: 32px;
+        border-radius: 4px;
+        transition: all 0.2s ease 0s;
+    }
+
+    &__button--no {
+        box-shadow: 0 0 0 1px u.$base-blue;
+        background-color: transparent;
+        color: u.$base-blue;
+        @media (any-hover: hover){
+            &:hover{
+                background-color: #1638CC;
+                box-shadow: 0 0 0 1px #1638CC;
+                color: u.$color-white;
+            }
+        }
+        &:active {
+            box-shadow: 0 0 0 1px #D7DCFF;
+            background-color: transparent;
+            color: u.$base-blue;
+        }
+    }
+
+    &__button--yes {
+        box-shadow: 0 0 0 1px u.$base-blue;
+        background-color: u.$base-blue;
+        color: u.$color-white;
+        @media (any-hover: hover){
+            &:hover{
+                box-shadow: 0 0 0 1px #1638CC;
+                background-color: #1638CC;
+            }
+        }
+        &:active {
+            box-shadow: 0 0 0 1px #D7DCFF;
+            background-color: transparent;
+            color: u.$base-blue;
+        }
+    }
+
+}
+.popup-active {
+    display: block;
+}

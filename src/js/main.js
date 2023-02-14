@@ -77,10 +77,47 @@ function getListItem({ id, title, completed }) {
         toggleChange($task, checked);
     });
 
-    $delete.addEventListener('click', () => {
-        removeCacheTodo(id);
-        $task.remove();
+    // hover
+    $delete.addEventListener('mouseover', () => {
+        $task.style.backgroundColor = '#F2F3FD';
+        $taskContentText.style.textDecoration= 'line-through';
+        $taskContentText.style.opacity = 0.5;
     });
+    $delete.addEventListener('mouseout', () => {
+        $task.style.backgroundColor = null;
+        $taskContentText.style.textDecoration = 'none';
+        $taskContentText.style.opacity = 1;
+    });
+
+    // кнопка видалення відкриває попап
+    $delete.addEventListener('click', () => {
+        const $popup = document.getElementById('popup');
+        const $popupClose = document.querySelector('.popup__close');
+        const $popupBtnNo = document.querySelector('.popup__button--no');
+        const $popupBtnYes = document.querySelector('.popup__button--yes');
+        $popup.classList.add('popup-active');
+
+        $popupClose.addEventListener('click', () => {
+            $popup.classList.remove('popup-active');
+        });
+        $popupBtnNo.addEventListener('click', () => {
+            $popup.classList.remove('popup-active');
+        });
+
+        $popupBtnYes.addEventListener('click', () => {
+            // спочатку анімація 
+            $task.classList.add('task__delete');
+            // по закінченню анімаціі йде видалення
+            $task.addEventListener('transitionend', () => {
+                removeCacheTodo(id);
+                $popup.classList.remove('popup-active');
+                $task.remove();
+            });
+            removeCacheTodo(id);
+            $popup.classList.remove('popup-active');
+        });
+    });
+
 
     return $task;
 }
@@ -95,6 +132,10 @@ function addNewTodo(title) {
     saveToCache([newTodo, ...getCacheData()]);
     const $todoList = document.getElementById(LIST_ID);
     const $newTodoItem = getListItem(newTodo);
+    $newTodoItem.style.backgroundColor = '#ECFFFA';
+    setTimeout(() => {
+        $newTodoItem.style.backgroundColor = null;
+    }, 10000)
     $todoList.prepend($newTodoItem);
 }
 
@@ -110,6 +151,7 @@ function onFormSubmit(e) {
     addNewTodo($inputAdd.value);
     this.reset();
 }
+
 // установка всього застосунку в HTML
 const installTodoApp = async () => {
     const todos = await getOrFetchTodo();
