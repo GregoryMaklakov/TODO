@@ -1,8 +1,8 @@
-import { removeCacheTodo, saveToCache, getCacheData, editCacheTodo, getOrFetchTodo } from './cache';
+import {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById} from './cache';
 
 "use strict";
 
-export const CACHE_KEY = 'todos';
+const CACHE_KEY = 'todos';
 const LIST_ID = 'todo-list';
 const $todoList = document.querySelector('.todo-list');
 const $inputAdd = document.querySelector('[name="todo"]');
