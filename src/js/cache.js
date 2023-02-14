@@ -1,6 +1,6 @@
-const CACHE_KEY = 'todos';
+
+import { CACHE_KEY } from './main';
 //Cache
-import { getTodo } from "./main";
 
 // зберегти дані в кеш (локалсторедж)
 function saveToCache(todos) {
@@ -49,4 +49,4 @@ async function getOrFetchTodo() {
     return saveToCache(data);
 }
 
-//export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById};
+export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById};
