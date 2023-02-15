@@ -1,11 +1,9 @@
-import {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById} from './cache';
+import {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData} from './cache';
 "use strict";
 
 export const CACHE_KEY = 'todos';
 const LIST_ID = 'todo-list';
-//const $todoList = document.querySelector('.todo-list');
 const $inputAdd = document.querySelector('[name="todo"]');
-//const $form = document.getElementById('new-task-form');
 const $btnAdd = document.getElementById('new-task-submit');
 
 // отримати список елементів по API

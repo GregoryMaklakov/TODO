@@ -1,5 +1,6 @@
 
 import { CACHE_KEY } from './main';
+import { getTodo } from './main';
 //Cache
 
 // зберегти дані в кеш (локалсторедж)
@@ -49,4 +50,4 @@ async function getOrFetchTodo() {
     return saveToCache(data);
 }
 
-export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData, getTodoIndxById};
+export {getOrFetchTodo, removeCacheTodo, editCacheTodo, saveToCache, getCacheData};
